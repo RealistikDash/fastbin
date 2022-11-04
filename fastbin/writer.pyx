@@ -68,6 +68,41 @@ cdef class BinaryWriter:
         memcpy(self.buffer_ptr, &value, sizeof(value))
         self.buffer_ptr += sizeof(value)
 
+    cpdef write_u32(self, uint32_t value):
+        self.ensure_capacity(sizeof(value))
+        memcpy(self.buffer_ptr, &value, sizeof(value))
+        self.buffer_ptr += sizeof(value)
+
+    cpdef write_u64(self, uint64_t value):
+        self.ensure_capacity(sizeof(value))
+        memcpy(self.buffer_ptr, &value, sizeof(value))
+        self.buffer_ptr += sizeof(value)
+
+    cpdef write_i8(self, int8_t value):
+        self.ensure_capacity(sizeof(value))
+        memcpy(self.buffer_ptr, &value, sizeof(value))
+        self.buffer_ptr += sizeof(value)
+
+    cpdef write_i16(self, int16_t value):
+        self.ensure_capacity(sizeof(value))
+        memcpy(self.buffer_ptr, &value, sizeof(value))
+        self.buffer_ptr += sizeof(value)
+
+    cpdef write_i32(self, int32_t value):
+        self.ensure_capacity(sizeof(value))
+        memcpy(self.buffer_ptr, &value, sizeof(value))
+        self.buffer_ptr += sizeof(value)
+
+    cpdef write_i64(self, int64_t value):
+        self.ensure_capacity(sizeof(value))
+        memcpy(self.buffer_ptr, &value, sizeof(value))
+        self.buffer_ptr += sizeof(value)
+
+    cpdef write_f32(self, float value):
+        self.ensure_capacity(sizeof(value))
+        memcpy(self.buffer_ptr, &value, sizeof(value))
+        self.buffer_ptr += sizeof(value)
+
     # Unsafe python api
     cpdef unsafe_remaining_capacity(self):
         return self.buffer_end - self.buffer_ptr
@@ -80,5 +115,33 @@ cdef class BinaryWriter:
         self.buffer_ptr += sizeof(value)
 
     cpdef unsafe_write_u16(self, uint16_t value):
+        memcpy(self.buffer_ptr, &value, sizeof(value))
+        self.buffer_ptr += sizeof(value)
+
+    cpdef unsafe_write_u32(self, uint32_t value):
+        memcpy(self.buffer_ptr, &value, sizeof(value))
+        self.buffer_ptr += sizeof(value)
+
+    cpdef unsafe_write_u64(self, uint64_t value):
+        memcpy(self.buffer_ptr, &value, sizeof(value))
+        self.buffer_ptr += sizeof(value)
+
+    cpdef unsafe_write_i8(self, int8_t value):
+        memcpy(self.buffer_ptr, &value, sizeof(value))
+        self.buffer_ptr += sizeof(value)
+
+    cpdef unsafe_write_i16(self, int16_t value):
+        memcpy(self.buffer_ptr, &value, sizeof(value))
+        self.buffer_ptr += sizeof(value)
+
+    cpdef unsafe_write_i32(self, int32_t value):
+        memcpy(self.buffer_ptr, &value, sizeof(value))
+        self.buffer_ptr += sizeof(value)
+
+    cpdef unsafe_write_i64(self, int64_t value):
+        memcpy(self.buffer_ptr, &value, sizeof(value))
+        self.buffer_ptr += sizeof(value)
+
+    cpdef unsafe_write_f32(self, float value):
         memcpy(self.buffer_ptr, &value, sizeof(value))
         self.buffer_ptr += sizeof(value)
